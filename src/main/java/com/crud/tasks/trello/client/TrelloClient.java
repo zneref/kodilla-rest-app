@@ -5,7 +5,6 @@ import com.crud.tasks.domain.CreatedTrelloCard;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
 import com.crud.tasks.domain.dto.TrelloCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -61,4 +60,5 @@ public class TrelloClient {
 
         return restTemplate.postForObject(url,null, CreatedTrelloCard.class);
     }
+
 }
