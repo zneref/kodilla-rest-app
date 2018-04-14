@@ -12,7 +12,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleEmailServiceTest {
