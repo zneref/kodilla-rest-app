@@ -3,6 +3,7 @@ package com.crud.tasks.controller;
 import com.crud.tasks.domain.CreatedTrelloCard;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
 import com.crud.tasks.domain.dto.TrelloCardDto;
+import com.crud.tasks.service.TrelloService;
 import com.crud.tasks.trello.client.TrelloClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +17,14 @@ import java.util.stream.Collectors;
 public class TrelloController {
 
     @Autowired
-    private TrelloClient trelloClient;
+    //private TrelloClient trelloClient;
+    private TrelloService trelloService;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
 
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-
+        //List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+        List<TrelloBoardDto> trelloBoards = trelloService.fetchTrelloBoards();
         trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 
         return trelloBoards.stream()
@@ -33,7 +35,8 @@ public class TrelloController {
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoardsWithLists")
     public List<TrelloBoardDto> getTrelloBoardsWithLists() {
         // GET request
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+        //List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+        List<TrelloBoardDto> trelloBoards = trelloService.fetchTrelloBoards();
 
         trelloBoards.forEach(trelloBoardDto -> {
 
@@ -50,7 +53,7 @@ public class TrelloController {
 
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloClient.createNewCard(trelloCardDto);
+        //return trelloClient.createNewCard(trelloCardDto);
+        return trelloService.createTrelloCard(trelloCardDto);
     }
-
 }
