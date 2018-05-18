@@ -1,7 +1,7 @@
 package com.crud.tasks.trello.client;
 
 import com.crud.tasks.config.TrelloConfig;
-import com.crud.tasks.domain.CreatedTrelloCardDto;
+import com.crud.tasks.domain.dto.CreatedTrelloCardDto;
 import com.crud.tasks.domain.dto.BadgesDto;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
 import com.crud.tasks.domain.dto.TrelloCardDto;

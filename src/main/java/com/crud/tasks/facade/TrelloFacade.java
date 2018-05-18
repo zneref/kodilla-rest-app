@@ -1,6 +1,6 @@
 package com.crud.tasks.facade;
 
-import com.crud.tasks.domain.CreatedTrelloCardDto;
+import com.crud.tasks.domain.dto.CreatedTrelloCardDto;
 import com.crud.tasks.domain.TrelloBoard;
 import com.crud.tasks.domain.TrelloCard;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class TrelloFacade {

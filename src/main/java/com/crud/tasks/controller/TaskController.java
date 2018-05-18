@@ -13,17 +13,17 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/v1/task")
+@RequestMapping("/v1")
 public class TaskController {
     @Autowired
     private TaskFacade taskFacade;
 
-    @RequestMapping(method = RequestMethod.GET, value = "tasks")
+    @RequestMapping(method = RequestMethod.GET, value = "/tasks")
     public List<TaskDto> getTasks() {
         return taskFacade.fetchAllTasks();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "tasks/{taskId}")
+    @RequestMapping(method = RequestMethod.GET, value = "/tasks/{taskId}")
     public TaskDto getTask(@PathVariable("taskId") Long taskId) throws TaskNotFoundException {
         return taskFacade.fetchTaskById(taskId);
     }
@@ -33,12 +33,12 @@ public class TaskController {
         taskFacade.deleteTask(taskId);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
+    @RequestMapping(method = RequestMethod.PUT, value = "/tasks")
     public TaskDto updateTask(@RequestBody TaskDto taskDto) {
         return taskFacade.updateTask(taskDto);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/tasks", consumes = APPLICATION_JSON_VALUE)
     public Task createTask(@RequestBody TaskDto taskDto)  {
        return taskFacade.createTask(taskDto);
     }

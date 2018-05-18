@@ -1,7 +1,7 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.config.AdminConfig;
-import com.crud.tasks.domain.CreatedTrelloCardDto;
+import com.crud.tasks.domain.dto.CreatedTrelloCardDto;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
 import com.crud.tasks.domain.dto.TrelloCardDto;
@@ -38,7 +38,7 @@ public class TrelloService {
                         adminConfig.getAdminCcMail(),
                         SUBJECT,
                         "New card: " + trelloCardDto.getName() + "has been created on your Trello account."
-                )));
+                ), SimpleEmailService.BOARDS_SERVICE));
 
         return card;
     }

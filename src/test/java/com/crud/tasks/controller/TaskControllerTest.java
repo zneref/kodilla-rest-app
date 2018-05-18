@@ -40,7 +40,7 @@ public class TaskControllerTest {
         List<TaskDto> taskDtos = Arrays.asList(new TaskDto(1L, "test title", "test content"));
         when(taskFacade.fetchAllTasks()).thenReturn(taskDtos);
         //When, Then
-        mockMvc.perform(get("/v1/task/tasks").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/v1/tasks").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id", is(1)))
@@ -54,7 +54,7 @@ public class TaskControllerTest {
         TaskDto taskDto = new TaskDto(1L, "test title", "test content");
         when(taskFacade.fetchTaskById(anyLong())).thenReturn(taskDto);
         //When, Then
-        mockMvc.perform(get("/v1/task/tasks/1").contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get("/v1/tasks/1").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.title", is("test title")))
@@ -69,7 +69,7 @@ public class TaskControllerTest {
         String jsonContent = gson.toJson(task);
         when(taskFacade.createTask(any(TaskDto.class))).thenReturn(task);
         //When, Then
-        mockMvc.perform(post("/v1/task/createTask")
+        mockMvc.perform(post("/v1/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
@@ -87,7 +87,7 @@ public class TaskControllerTest {
         String jsonContent = gson.toJson(taskDto);
         when(taskFacade.updateTask(any(TaskDto.class))).thenReturn(taskDto);
         //When, Then
-        mockMvc.perform(put("/v1/task/updateTask")
+        mockMvc.perform(put("/v1/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8")
                 .content(jsonContent))
@@ -104,7 +104,7 @@ public class TaskControllerTest {
         taskFacade.deleteTask(task.getId());
         //When, Then
         verify(taskFacade, times(1)).deleteTask(task.getId());
-        mockMvc.perform(delete("/v1/task/tasks/1")
+        mockMvc.perform(delete("/v1/tasks/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }

@@ -27,7 +27,7 @@ public class TrelloMapperTestSuite {
     public void mapToBoards() {
         //Given
         List<TrelloListDto> trelloListDtos = Arrays.asList(new TrelloListDto("test_id", "test_name", false));
-        List<TrelloBoardDto> trelloBoardDtos = Arrays.asList(new TrelloBoardDto("test_name", "test_id", trelloListDtos));
+        List<TrelloBoardDto> trelloBoardDtos = Arrays.asList(new TrelloBoardDto("test_id", "test_name", trelloListDtos));
 
         //When
         List<TrelloBoard> trelloBoards = trelloMapper.mapToBoards(trelloBoardDtos);
@@ -83,7 +83,7 @@ public class TrelloMapperTestSuite {
     public void mapToBoardDto() {
         //Given
         List<TrelloList> trelloLists = Arrays.asList(new TrelloList("test_id", "test_name", false));
-        List<TrelloBoard> trelloBoards = Arrays.asList(new TrelloBoard("test_name", "test_id", trelloLists));
+        List<TrelloBoard> trelloBoards = Arrays.asList(new TrelloBoard("test_id", "test_name", trelloLists));
 
         //When
         List<TrelloBoardDto> trelloBoardDtos = trelloMapper.mapToBoardDto(trelloBoards);

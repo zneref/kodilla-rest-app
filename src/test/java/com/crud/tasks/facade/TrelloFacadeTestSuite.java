@@ -61,7 +61,7 @@ public class TrelloFacadeTestSuite {
     public void shouldFetchTrelloBoards() {
         //Given
         List<TrelloListDto> listDtos = Arrays.asList(new TrelloListDto("test_id", "list_name", false));
-        List<TrelloBoardDto> boardDtos = Arrays.asList((new TrelloBoardDto("task_name", "test_id", listDtos)));
+        List<TrelloBoardDto> boardDtos = Arrays.asList((new TrelloBoardDto("test_id", "task_name", listDtos)));
         List<TrelloList> lists = Arrays.asList(new TrelloList("test_id", "list_name", false));
         List<TrelloBoard> boards = Arrays.asList((new TrelloBoard("test_id", "task_name", lists)));
 

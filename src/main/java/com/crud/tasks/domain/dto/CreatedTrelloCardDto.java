@@ -1,4 +1,4 @@
-package com.crud.tasks.domain;
+package com.crud.tasks.domain.dto;
 
 import com.crud.tasks.domain.dto.BadgesDto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
