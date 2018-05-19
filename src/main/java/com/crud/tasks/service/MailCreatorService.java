@@ -23,7 +23,7 @@ public class MailCreatorService {
         Context context = new Context();
         context.setVariable("preview", "preview");
         context.setVariable("message", message);
-        context.setVariable("tasks_url", "http://localhost/~manix/tasks_frontend");
+        context.setVariable("tasks_url", "http://zneref.github.io");
         context.setVariable("button", "Visit website");
         context.setVariable("admin_name", adminConfig.getAdminName());
         context.setVariable("bye_message", "Bye!");
@@ -38,7 +38,7 @@ public class MailCreatorService {
         Context context = new Context();
         context.setVariable("preview", "preview");
         context.setVariable("message", message);
-        context.setVariable("tasks_url", "http://localhost/~manix/tasks_frontend");
+        context.setVariable("tasks_url", "zneref.github.io");
         context.setVariable("button", "Visit website");
         context.setVariable("admin_name", adminConfig.getAdminName());
         context.setVariable("bye_message", "Bye!");
